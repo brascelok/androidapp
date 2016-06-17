@@ -1,0 +1,143 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	
+	
+
+<p>In Objective-C programming language, in order to save the basic data types like int, float, bool in object form,</p>
+
+<p>Objective-C provides a range of methods to work with NSNumber and important ones are listed in following table.</p>
+
+<table>
+	<thead>
+		<tr>
+			<th>S.N.</th>
+			<th>Method and Description</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td>1</td>
+			<td><strong>+ (NSNumber *)numberWithBool:(BOOL)value</strong>Creates and returns an NSNumber object containing a given value, treating it as a BOOL.
+				<br>
+			</td>
+		</tr>
+		<tr>
+			<td>2</td>
+			<td><strong>+ (NSNumber *)numberWithChar:(char)value</strong>Creates and returns an NSNumber object containing a given value, treating it as a signed char.
+				<br>
+			</td>
+		</tr>
+		<tr>
+			<td>3</td>
+			<td><strong>+ (NSNumber *)numberWithDouble:(double)value</strong>Creates and returns an NSNumber object containing a given value, treating it as a double.
+				<br>
+			</td>
+		</tr>
+		<tr>
+			<td>4</td>
+			<td><strong>+ (NSNumber *)numberWithFloat:(float)value</strong>Creates and returns an NSNumber object containing a given value, treating it as a float.
+				<br>
+			</td>
+		</tr>
+		<tr>
+			<td>5</td>
+			<td><strong>+ (NSNumber *)numberWithInt:(int)value</strong>Creates and returns an NSNumber object containing a given value, treating it as a signed int.
+				<br>
+			</td>
+		</tr>
+		<tr>
+			<td>6</td>
+			<td><strong>+ (NSNumber *)numberWithInteger:(NSInteger)value</strong>Creates and returns an NSNumber object containing a given value, treating it as an NSInteger.
+				<br>
+			</td>
+		</tr>
+		<tr>
+			<td>7</td>
+			<td><strong>- (BOOL)boolValue</strong>Returns the receiver&apos;s value as a BOOL.
+				<br>
+			</td>
+		</tr>
+		<tr>
+			<td>8</td>
+			<td><strong>- (char)charValue</strong>Returns the receiver&apos;s value as a char.
+				<br>
+			</td>
+		</tr>
+		<tr>
+			<td>9</td>
+			<td><strong>- (double)doubleValue</strong>Returns the receiver&apos;s value as a double.
+				<br>
+			</td>
+		</tr>
+		<tr>
+			<td>10</td>
+			<td><strong>- (float)floatValue</strong>Returns the receiver&apos;s value as a float.
+				<br>
+			</td>
+		</tr>
+		<tr>
+			<td>11</td>
+			<td><strong>- (NSInteger)integerValue</strong>Returns the receiver&apos;s value as an NSInteger.
+				<br>
+			</td>
+		</tr>
+		<tr>
+			<td>12</td>
+			<td><strong>- (int)intValue</strong>Returns the receiver&apos;s value as an int.
+				<br>
+			</td>
+		</tr>
+		<tr>
+			<td>13</td>
+			<td><strong>- (NSString *)stringValue</strong>Returns the receiver&apos;s value as a human-readable string.
+				<br>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+<p>Here is a simple example for using NSNumber which multiplies two numbers and returns the product.</p><pre>#import &lt;Foundation/Foundation.h&gt;
+
+@interface SampleClass:NSObject
+
+- (NSNumber *)multiplyA:(NSNumber *)a withB:(NSNumber *)b;
+
+@end
+
+@implementation SampleClass
+
+- (NSNumber *)multiplyA:(NSNumber *)a withB:(NSNumber *)b
+{
+&nbsp; &nbsp;float number1 = [a floatValue];
+&nbsp; &nbsp;float number2 = [b floatValue];
+&nbsp; &nbsp;float product = number1 * number2;
+&nbsp; &nbsp;NSNumber *result = [NSNumber numberWithFloat:product];
+&nbsp; &nbsp;return result;
+}
+
+@end
+
+int main()
+{
+&nbsp; &nbsp;NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+
+&nbsp; &nbsp;SampleClass *sampleClass = [[SampleClass alloc]init];
+&nbsp; &nbsp;NSNumber *a = [NSNumber numberWithFloat:10.5];
+&nbsp; &nbsp;NSNumber *b = [NSNumber numberWithFloat:10.0]; &nbsp; 
+&nbsp; &nbsp;NSNumber *result = [sampleClass multiplyA:a withB:b];
+&nbsp; &nbsp;NSString *resultString = [result stringValue];
+&nbsp; &nbsp;NSLog(@&quot;The product is %@&quot;,resultString);
+
+&nbsp; &nbsp;[pool drain];
+&nbsp; &nbsp;return 0;
+}</pre>
+
+<p>Now when we compile and run the program, we will get the following result.</p><pre>2013-09-14 18:53:40.575 demo[16787] The product is 105</pre>
+
+
+</body>
+</html>

@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Learn Objective-C</string>
+    <string name="activity_theory">Theory</string>
+    <string name="activity_question">Questions</string>
+    <string name="activity_tips">Tips</string>
+    <string name="activity_exercises">Exercise</string>
+    <string name="activity_question_topic">Topic</string>
+    <string name="activity_question_compare">Compare</string>
+    <string name="multichoiceTitle">Choose question package</string>
+    <string-array name="dropdown_list_range">
+        <item>10</item>
+        <item>20</item>
+        <item>30</item>
+    </string-array>
+
+    <string name="btn_ok">OK</string>
+
+    <!--exercise-->
+    <string name="ex_notice">Notice</string>
+    <string name="ex_yougot">You got</string>
+    <string name="ex_example_score">100%</string>
+    <string name="finish">Finish</string>
+    <string name="ten">10</string>
+    <string name="twenty">20</string>
+    <string name="thirty">30</string>
+    <string name="ex_btn_next">NEXT</string>
+    <string name="ex_des">button check the answer</string>
+    <string name="ex_exercise_question_number">1/20</string>
+
+    <!--question-->
+    <string name="topic">Topic</string>
+    <string name="compare">Compare</string>
+
+    <!--tips-->
+    <string name="description_image">Tips image rescource</string>
+    <string name="description_image_button">Tips button image rescource</string>
+
+    <!--main-->
+    <string name="main_theory">THEORY</string>
+    <string name="main_question">QUESTION</string>
+    <string name="main_tips">TIPS</string>
+    <string name="main_ex">EXERCISE</string>
+</resources>

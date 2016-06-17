@@ -1,0 +1,101 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	
+
+<p>Objective-C allows you to define protocols, which declare the methods expected to be used for a particular situation. Protocols are implemented in the classes conforming to the protocol.</p>
+
+<p>A simple example would be a network URL handling class, it will have a protocol with methods like processCompleted delegate method that intimates the calling class once the network URL fetching operation is over.</p>
+
+<p>A syntax of protocol is shown below.</p><pre>@protocol ProtocolName
+@required
+// list of required methods
+@optional
+// list of optional methods
+@end</pre>
+
+<p>The methods under keyword <strong>@required</strong> must be implemented in the classes that conforms to the protocol and the methods under <strong>@optional</strong> keyword are optional to implement.</p>
+
+<p>Here is the syntax for class conforming to protocol</p><pre>@interface MyClass : NSObject &lt;MyProtocol&gt;
+...
+@end</pre>
+
+<p>This means that any instance of MyClass will respond not only to the methods declared specifically in the interface, but that MyClass also provides implementations for the required methods in MyProtocol. There&apos;s no need to redeclare the protocol methods in the class interface - the adoption of the protocol is sufficient.</p>
+
+<p>If you need a class to adopt multiple protocols, you can specify them as a comma-separated list. We have a delegate object that holds the reference of the calling object that implements the protocol.</p>
+
+<p>An example is shown below.</p><pre>#import &lt;Foundation/Foundation.h&gt;
+
+@protocol PrintProtocolDelegate
+
+- (void)processCompleted;
+
+@end
+
+@interface PrintClass :NSObject
+{
+&nbsp; &nbsp; id delegate;
+}
+
+- (void) printDetails;
+- (void) setDelegate:(id)newDelegate;
+@end
+
+@implementation PrintClass
+
+- (void)printDetails{
+&nbsp; &nbsp; NSLog(@&quot;Printing Details&quot;);
+&nbsp; &nbsp; [delegate processCompleted];
+}
+
+- (void) setDelegate:(id)newDelegate{
+&nbsp; &nbsp; delegate = newDelegate;
+}
+
+@end
+
+
+@interface SampleClass:NSObject&lt;PrintProtocolDelegate&gt;
+
+- (void)startAction;
+
+@end
+
+@implementation SampleClass
+
+- (void)startAction{
+&nbsp; &nbsp; PrintClass *printClass = [[PrintClass alloc]init];
+&nbsp; &nbsp; [printClass setDelegate:self];
+&nbsp; &nbsp; [printClass printDetails];
+}
+
+-(void)processCompleted{
+&nbsp; &nbsp; NSLog(@&quot;Printing Process Completed&quot;);
+}
+
+@end
+
+
+int main(int argc, const char * argv[])
+{
+&nbsp; &nbsp; NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+&nbsp; &nbsp; SampleClass *sampleClass = [[SampleClass alloc]init];
+&nbsp; &nbsp; [sampleClass startAction];
+&nbsp; &nbsp; [pool drain];
+&nbsp; &nbsp; return 0;
+}</pre>
+
+<p>Now when we compile and run the program, we will get the following result.</p><pre>2013-09-22 21:15:50.362 Protocols[275:303] Printing Details
+2013-09-22 21:15:50.364 Protocols[275:303] Printing Process Completed</pre>
+
+<p>In the above example we have seen how the delgate methods are called and executed. Its starts with startAction, once the process is completed, the delegate method processCompleted is called to intimate the operation is completed.</p>
+
+<p>In any iOS or Mac app, we will never have a program implemented without a delegate. So its important we understand the usage of delegates. Delegates objects should use unsafe_unretained property type to avoid memory leaks.</p>
+
+	
+</body>
+</html>

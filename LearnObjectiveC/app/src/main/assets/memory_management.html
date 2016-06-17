@@ -1,0 +1,180 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<p>Memory management is one of the most important process in any programming language. It is the process by which the memory of objects are allocated when they are required and deallocated when they are no longer required.</p>
+
+<p>Managing object memory is a matter of performance; if an application doesn&apos;t free unneeded objects, its memory footprint grows and performance suffers.</p>
+
+<p>Objective-C Memory management techniques can be broadly classified into two types.</p>
+
+<ul>
+	<li>
+
+		<p>&quot;Manual Retain-Release&quot; or MRR</p>
+	</li>
+	<li>
+
+		<p>&quot;Automatic Reference Counting&quot; or ARC</p>
+	</li>
+</ul>
+
+<h2>&quot;Manual Retain-Release&quot; or MRR</h2>
+
+<p>In MRR, we explicitly manage memory by keeping track of objects on our own. This is implemented using a model, known as reference counting, that the Foundation class NSObject provides in conjunction with the runtime environment.</p>
+
+<p>The only difference between MRR and ARC is that the retain and release is handled by us manually in former while its automatically taken care of in the latter.</p>
+
+<p>The following figure represents an example of how memory management work in Objective-C.</p>
+
+<p><img src="http://www.tutorialspoint.com/objective_c/images/memorymgnt_objectivec.png" alt="Objective-C Memory management"></p>
+
+<p>The memory life cycle of the Class A object is shown in the above figure. As you can see, the retain count is shown below the object, when the retain count of an object becomes 0, the object is freed completely and its memory is deallocated for other objects to use.</p>
+
+<p>Class A object is first created using alloc/init method available in NSObject. Now, the retain count becomes 1.</p>
+
+<p>Now, class B retains the Class A&apos;s Object and the retain count of Class A&apos;s object becomes 2.</p>
+
+<p>Then, Class C makes a copy of the object. Now, it is created as another instance of Class A with same values for the instance variables. Here, the retain count is 1 and not the retain count of the original object. This is represented by the dotted line in the figure.</p>
+
+<p>The copied object is released by Class C using the release method and the retain count becomes 0 and hence the object is destroyed.</p>
+
+<p>In case of the initial Class A Object, the retain count is 2 and it has to be released twice in order for it to be destroyed. This is done by release statements of Class A and Class B which decrements the retain count to 1 and 0, respectively. Finally, the object is destroyed.</p>
+
+<h2>MRR Basic Rules</h2>
+
+<ul>
+	<li>
+
+		<p>We own any object we create: We create an object using a method whose name begins with &quot;alloc&quot;, &quot;new&quot;, &quot;copy&quot;, or &quot;mutableCopy&quot;</p>
+	</li>
+	<li>
+
+		<p>We can take ownership of an object using retain: A received object is normally guaranteed to remain valid within the method it was received in, and that method may also safely return the object to its invoker. We use retain in two situations:</p>
+
+		<ul>
+			<li>
+
+				<p>In the implementation of an accessor method or an init method, to take ownership of an object we want to store as a property value.</p>
+			</li>
+			<li>
+
+				<p>To prevent an object from being invalidated as a side-effect of some other operation.</p>
+			</li>
+		</ul>
+	</li>
+	<li>
+
+		<p>When we no longer need it, we must relinquish ownership of an object we own: We relinquish ownership of an object by sending it a release message or an autorelease message. In Cocoa terminology, relinquishing ownership of an object is therefore typically referred to as &quot;releasing&quot; an object.</p>
+	</li>
+	<li>
+
+		<p>You must not relinquish ownership of an object you do not own: This is just corollary of the previous policy rules stated explicitly.</p>
+	</li>
+</ul><pre>#import &lt;Foundation/Foundation.h&gt;
+
+@interface SampleClass:NSObject
+- (void)sampleMethod;
+@end
+
+@implementation SampleClass
+
+- (void)sampleMethod
+{
+&nbsp; &nbsp;NSLog(@&quot;Hello, World! \n&quot;);
+}
+
+- (void)dealloc 
+{
+&nbsp; NSLog(@&quot;Object deallocated&quot;);
+&nbsp; [super dealloc];
+}
+
+@end
+
+int main()
+{
+&nbsp; &nbsp;/* my first program in Objective-C */
+&nbsp; &nbsp;SampleClass *sampleClass = [[SampleClass alloc]init];
+&nbsp; &nbsp;[sampleClass sampleMethod];
+&nbsp; &nbsp;NSLog(@&quot;Retain Count after initial allocation: %d&quot;, 
+&nbsp; &nbsp;[sampleClass retainCount]);
+&nbsp; &nbsp;[sampleClass retain];
+&nbsp; &nbsp;NSLog(@&quot;Retain Count after retain: %d&quot;, [sampleClass retainCount]);
+&nbsp; &nbsp;[sampleClass release];
+&nbsp; &nbsp;NSLog(@&quot;Retain Count after release: %d&quot;, [sampleClass retainCount]);
+&nbsp; &nbsp;[sampleClass release];
+&nbsp; &nbsp;NSLog(@&quot;SampleClass dealloc will be called before this&quot;);
+&nbsp; &nbsp;// Should set the object to nil
+&nbsp; &nbsp;sampleClass = nil;
+&nbsp; &nbsp;return 0;
+}</pre>
+
+<p>When we compile the above program, we will get the following output.</p><pre>2013-09-28 04:39:52.310 demo[8385] Hello, World!
+2013-09-28 04:39:52.311 demo[8385] Retain Count after initial allocation: 1
+2013-09-28 04:39:52.311 demo[8385] Retain Count after retain: 2
+2013-09-28 04:39:52.311 demo[8385] Retain Count after release: 1
+2013-09-28 04:39:52.311 demo[8385] Object deallocated
+2013-09-28 04:39:52.311 demo[8385] SampleClass dealloc will be called before this</pre>
+
+<h2>&quot;Automatic Reference Counting&quot; or ARC</h2>
+
+<p>In Automatic Reference Counting or ARC, the system uses the same reference counting system as MRR, but it inserts the appropriate memory management method calls for us at compile-time. We are strongly encouraged to use ARC for new projects. If we use ARC, there is typically no need to understand the underlying implementation described in this document, although it may in some situations be helpful. For more about ARC, see<a href="https://developer.apple.com/library/ios/releasenotes/ObjectiveC/RN-TransitioningToARC/Introduction/Introduction.html" rel="nofollow" target="_blank">Transitioning to ARC Release Notes.</a></p>
+
+<p>As mentioned above, in ARC, we need not add release and retain methods since that will be taken care by the compiler. Actually, the underlying process of Objective-C is still the same. It uses the retain and release operations internally making it easier for the developer to code without worrying about these operations, which will reduce both the amount of code written and the possibility of memory leaks.</p>
+
+<p>There was another principle called garbage collection, which is used in Mac OS-X along with MRR, but since its deprecation in OS-X Mountain Lion, it has not been discussed along with MRR. Also, iOS objects never had garbage collection feature. And with ARC, there is no use of garbage collection in OS-X too.</p>
+
+<p>Here is a simple ARC example. Note this won&apos;t work on online compiler since it does not support ARC.</p><pre>#import &lt;Foundation/Foundation.h&gt;
+
+@interface SampleClass:NSObject
+- (void)sampleMethod;
+@end
+
+@implementation SampleClass
+
+- (void)sampleMethod
+{
+&nbsp; &nbsp;NSLog(@&quot;Hello, World! \n&quot;);
+}
+
+- (void)dealloc 
+{
+&nbsp; NSLog(@&quot;Object deallocated&quot;);
+}
+
+@end
+
+int main()
+{
+&nbsp; &nbsp;/* my first program in Objective-C */
+&nbsp; &nbsp;@autoreleasepool{
+&nbsp; &nbsp; &nbsp; &nbsp;SampleClass *sampleClass = [[SampleClass alloc]init];
+&nbsp; &nbsp; &nbsp; &nbsp;[sampleClass sampleMethod];
+&nbsp; &nbsp;sampleClass = nil;
+&nbsp; &nbsp;}
+&nbsp; &nbsp;return 0;
+}</pre>
+
+<p>When we compile the above program, we will get the following output.</p><pre>2013-09-28 04:45:47.310 demo[8385] Hello, World!
+2013-09-28 04:45:47.311 demo[8385] Object deallocated</pre>
+
+<table>
+	<tbody>
+		<tr>
+			<td>
+				<br>
+			</td>
+			<td>
+				<br>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+	
+</body>
+</html>

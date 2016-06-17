@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="red_light">#ffff4444</color>
+    <color name="green_light">#ff99cc00</color>
+    <color name="orange_light">#ffffbb33</color>
+    <color name="blue_light">#ff33b5e5</color>
+
+    <!--background layout-->
+    <color name="white">#ffffff</color>
+    <color name="bg_gradient_start">#002147</color>
+    <color name="bg_gradient_end">#21abcd</color>
+
+    <!--button-->
+    <color name="button_bg">#00422f</color>
+    <color name="button_bg_diable">#d3d3d3</color>
+</resources>

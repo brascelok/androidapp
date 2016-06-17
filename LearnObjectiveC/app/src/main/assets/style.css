@@ -1,0 +1,32 @@
+table, td {
+	border: 1px solid #ddd;
+}
+table{
+	border-collapse:collapse;
+}
+td{
+	padding: 3px;
+}
+th{
+	background: #eee;
+}
+h1, h2{
+	text-align: center;
+}
+pre {
+	background:#F8F8FF; 
+	display: inline-block;
+	white-space: pre-line;
+	line-height: 16px;
+	border: 1px solid #d6d6d6;
+	margin-bottom: 10px;
+	font-size: 12px;
+	font-style: italic;
+	font-family: monospace;
+}​
+thead{
+	background: #eee;
+}
+p{
+	text-align: justify;
+}

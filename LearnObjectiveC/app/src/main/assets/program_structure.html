@@ -1,0 +1,123 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	
+
+	<p>Before we study basic building blocks of the Objective-C programming language, let us look a bare minimum Objective-C program structure so that we can take it as a reference in upcoming chapters.</p>
+
+	<h2>Objective-C Hello World Example</h2>
+
+	<p>A Objective-C program basically consists of the following parts:</p>
+
+	<ul>
+		<li>
+
+			<p>Preprocessor Commands</p>
+		</li>
+		<li>
+
+			<p>Interface</p>
+		</li>
+		<li>
+
+			<p>Implementation</p>
+		</li>
+		<li>
+
+			<p>Method</p>
+		</li>
+		<li>
+
+			<p>Variables</p>
+		</li>
+		<li>
+
+			<p>Statements &amp; Expressions</p>
+		</li>
+		<li>
+
+			<p>Comments</p>
+		</li>
+	</ul>
+
+	<p>Let us look at a simple code that would print the words &quot;Hello World&quot;:</p><pre>#import &lt;Foundation/Foundation.h&gt;
+
+@interface SampleClass:NSObject
+- (void)sampleMethod;
+@end
+
+@implementation SampleClass
+
+- (void)sampleMethod{
+&nbsp; &nbsp;NSLog(@&quot;Hello, World! \n&quot;);
+}
+
+@end
+
+int main()
+{
+&nbsp; &nbsp;/* my first program in Objective-C */
+&nbsp; &nbsp;SampleClass *sampleClass = [[SampleClass alloc]init];
+&nbsp; &nbsp;[sampleClass sampleMethod];
+&nbsp; &nbsp;return 0;
+}</pre>
+
+	<p>Let us look various parts of the above program:</p>
+
+	<ol>
+		<li>
+
+			<p>The first line of the program <em>#import &lt;Foundation/Foundation.h&gt;</em> is a preprocessor command, which tells a Objective-C compiler to include Foundation.h file before going to actual compilation.</p>
+		</li>
+		<li>
+
+			<p>The next line <em>@interface SampleClass:NSObject</em> shows how to create an interface. It inherits NSObject, which is the base class of all objects.</p>
+		</li>
+		<li>
+
+			<p>The next line <em>- (void)sampleMethod;</em> shows how to declare a method.</p>
+		</li>
+		<li>
+
+			<p>The next line <em>@end</em> marks the end of an interface.</p>
+		</li>
+		<li>
+
+			<p>The next line <em>@implementation SampleClass</em> shows how to implement the interface SampleClass.</p>
+		</li>
+		<li>
+
+			<p>The next line <em>- (void)sampleMethod{}</em> shows the implementation of the sampleMethod.</p>
+		</li>
+		<li>
+
+			<p>The next line <em>@end</em> marks the end of an implementation.</p>
+		</li>
+		<li>
+
+			<p>The next line <em>int main()</em> is the main function where program execution begins.</p>
+		</li>
+		<li>
+
+			<p>The next line /*...*/ will be ignored by the compiler and it has been put to add additional comments in the program. So such lines are called comments in the program.</p>
+		</li>
+		<li>
+
+			<p>The next line <em>NSLog(...)</em> is another function available in Objective-C which causes the message &quot;Hello, World!&quot; to be displayed on the screen.</p>
+		</li>
+		<li>
+
+			<p>The next line <strong>return 0;</strong> terminates main()function and returns the value 0.</p>
+		</li>
+	</ol>
+
+	<h2>Compile &amp; Execute Objective-C Program:</h2>
+
+	<p>Now when we compile and run the program, we will get the following result.</p>2013-09-07 22:38:27.932 demo[28001] Hello, World!
+
+
+</body>
+</html>

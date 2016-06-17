@@ -1,0 +1,81 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<p>Dynamic binding is determining the method to invoke at runtime instead of at compile time. Dynamic binding is also referred to as late binding.</p>
+
+<p>In Objective-C, all methods are resolved dynamically at runtime. The exact code executed is determined by both the method name (the selector) and the receiving object.</p>
+
+<p>Dynamic binding enables polymorphism. For example, consider a collection of objects including Rectangle and Square. Each object has its own implementation of a printArea method.</p>
+
+<p>In the following code fragment, the actual code that should be executed by the expression [anObject printArea] is determined at runtime. The runtime system uses the selector for the method run to identify the appropriate method in whatever class of anObject turns out to be.</p>
+
+<p>Let us look at a simple code that would explain dynamic binding.</p><pre>#import &lt;Foundation/Foundation.h&gt;
+
+@interface Square:NSObject
+{
+&nbsp; &nbsp;float area;
+}
+- (void)calculateAreaOfSide:(CGFloat)side;
+- (void)printArea;
+@end
+
+@implementation Square
+
+- (void)calculateAreaOfSide:(CGFloat)side
+{
+&nbsp; &nbsp; area = side * side;
+}
+- (void)printArea
+{
+&nbsp; &nbsp; NSLog(@&quot;The area of square is %f&quot;,area);
+}
+
+@end
+
+@interface Rectangle:NSObject
+{
+&nbsp; &nbsp;float area;
+}
+- (void)calculateAreaOfLength:(CGFloat)length andBreadth:(CGFloat)breadth;
+- (void)printArea;
+@end
+
+@implementation &nbsp;Rectangle
+
+- (void)calculateAreaOfLength:(CGFloat)length andBreadth:(CGFloat)breadth
+{
+&nbsp; &nbsp; area = length * breadth;
+}
+- (void)printArea
+{
+&nbsp; &nbsp; NSLog(@&quot;The area of Rectangle is %f&quot;,area);
+}
+
+@end
+
+int main()
+{
+&nbsp; &nbsp;Square *square = [[Square alloc]init];
+&nbsp; &nbsp;[square calculateAreaOfSide:10.0];
+&nbsp; &nbsp;Rectangle *rectangle = [[Rectangle alloc]init];
+&nbsp; &nbsp;[rectangle calculateAreaOfLength:10.0 andBreadth:5.0];
+&nbsp; &nbsp;NSArray *shapes = [[NSArray alloc]initWithObjects: square, rectangle,nil];
+&nbsp; &nbsp;id object1 = [shapes objectAtIndex:0];
+&nbsp; &nbsp;[object1 printArea];
+&nbsp; &nbsp;id object2 = [shapes objectAtIndex:1];
+&nbsp; &nbsp;[object2 printArea];
+&nbsp; &nbsp;return 0;
+}</pre>
+
+<p>Now when we compile and run the program, we will get the following result.</p><pre>2013-09-28 07:42:29.821 demo[4916] The area of square is 100.000000
+2013-09-28 07:42:29.821 demo[4916] The area of Rectangle is 50.000000</pre>
+
+<p>As you can see in the above example, printArea method is dynamically selected in runtime. It is an example for dynamic binding and is quite useful in many situations when dealing with similar kind of objects.</p>
+
+	
+</body>
+</html>

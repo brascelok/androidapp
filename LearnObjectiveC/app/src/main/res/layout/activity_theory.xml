@@ -1,0 +1,8 @@
+<com.blackrose.learnobjectivec.gui.PinnedSectionListView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/listPinned"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:divider="@null"
+    android:footerDividersEnabled="false"
+    android:headerDividersEnabled="false" />

@@ -1,0 +1,64 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+
+    <!--button-->
+    <dimen name="ex_ques_anw_button_text_size">18sp</dimen>
+    <dimen name="ex_ques_anw_margin_left_right">24dp</dimen>
+    <dimen name="ex_ques_anw_margin_top_bot">16dp</dimen>
+    <dimen name="ex_img_btn_height">55dp</dimen>
+    <dimen name="ex_img_btn_width">58dp</dimen>
+    <dimen name="ex_button_width">150dp</dimen>
+    <dimen name="ex_button_width600">230dp</dimen>
+    <dimen name="ex_button_width720">300dp</dimen>
+    <dimen name="ex_button_margin_bot">15dp</dimen>
+    <dimen name="ex_button_textsize">40sp</dimen>
+    <dimen name="ex_button_textsize600">60sp</dimen>
+    <dimen name="question_button_textsize">24sp</dimen>
+    <dimen name="question_button_textsize600">36sp</dimen>
+    <dimen name="question_button_textsize720">48sp</dimen>
+    <dimen name="question_margin_left_right">80dp</dimen>
+    <dimen name="question_margin_top">20dp</dimen>
+    <dimen name="question_margin_bot">70dp</dimen>
+    <dimen name="tips_imgbtn_width">80dp</dimen>
+    <dimen name="tips_imgbtn_width600">130dp</dimen>
+    <dimen name="tips_imgbtn_width720">150dp</dimen>
+
+    <!--textview-->
+    <dimen name="ex_textview_textsize_big">28sp</dimen>
+    <dimen name="ex_textview_textsize_small">20sp</dimen>
+    <dimen name="questiontopic_textview_textsize_big">22sp</dimen>
+    <dimen name="questiontopic_textview_textsize_small">20sp</dimen>
+    <dimen name="questioncompare_textview_textsize_big">18sp</dimen>
+    <dimen name="questioncompare_textview_textsize_big600">22sp</dimen>
+    <dimen name="questioncompare_textview_textsize_big720">26sp</dimen>
+    <dimen name="questioncompare_textview_textsize_small">12sp</dimen>
+    <dimen name="ex_margin_parent">5dp</dimen>
+    <dimen name="ex_padding_left_right">10dp</dimen>
+    <dimen name="ex_notice_score">60sp</dimen>
+    <dimen name="ex_text_title_size">24sp</dimen>
+    <dimen name="ex_text_title_size600">32sp</dimen>
+    <dimen name="ex_text_title_size720">48sp</dimen>
+
+
+    <!--progress bar-->
+    <dimen name="ex_min_height">20dp</dimen>
+
+    <!--layout-->
+    <dimen name="ex_layout_height">100dp</dimen>
+    <dimen name="ex_margin_top">10dp</dimen>
+
+    <!--listview-->
+    <dimen name="ex_listview_height">300dp</dimen>
+
+    <!--radiogroup-->
+    <dimen name="ex_radio_grp_height">110dp</dimen>
+
+    <!--imageview-->
+    <dimen name="ex_smile">120dp</dimen>
+    <dimen name="ex_smile600">90dp</dimen>
+    <dimen name="ex_smile720">40dp</dimen>
+
+</resources>

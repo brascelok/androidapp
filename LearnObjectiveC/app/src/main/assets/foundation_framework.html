@@ -1,0 +1,82 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	
+
+<p>If you refer Apple documentation, you can see the details of Foundation framework as given below.</p>
+
+<p>The Foundation framework defines a base layer of Objective-C classes. In addition to providing a set of useful primitive object classes, it introduces several paradigms that define functionality not covered by the Objective-C language. The Foundation framework is designed with these goals in mind:</p>
+
+<ul>
+	<li>
+
+		<p>Provide a small set of basic utility classes.</p>
+	</li>
+	<li>
+
+		<p>Make software development easier by introducing consistent conventions for things such as deallocation.</p>
+	</li>
+	<li>
+
+		<p>Support Unicode strings, object persistence, and object distribution.</p>
+	</li>
+	<li>
+
+		<p>Provide a level of OS independence to enhance portability.</p>
+	</li>
+</ul>
+
+<p>The framework was developed by NeXTStep, which was acquired by Apple and these foundation classes became part of Mac OS X and iOS.</p>
+
+<p>Since it was developed by NeXTStep, it has class prefix of &quot;NS&quot;.</p>
+
+<p>We have used Foundation Framework in all our sample programs. It is almost a must to use Foundation Framework.</p>
+
+<p>Generally, we use something like <strong>#import &lt;Foundation/NSString.h&gt;</strong> to import a Objective-C class, but in order avoid importing too many classes, it&apos;s all imported in<strong>#import &lt;Foundation/Foundation.h&gt;</strong>.</p>
+
+<p>NSObject is the base class of all objects including the foundation kit classes. It provides the methods for memory management. It also provides basic interface to the runtime system and ability to behave as Objective-C objects. It doesn&apos;t have any base class and is the root for all classes.</p>
+
+<h2>Foundation Classes based on functionality</h2>
+
+<table>
+	<thead>
+		<tr>
+			<th>Loop Type</th>
+			<th>Description</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr>
+			<td><a href="http://www.tutorialspoint.com/objective_c/objective_c_data_storage.htm" title="Data Storage in Objective-C">Data storage</a></td>
+			<td>NSArray, NSDictionary, and NSSet provide storage for Objective-C objects of any class.</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.tutorialspoint.com/objective_c/objective_c_texts_and_strings.htm" title="Text and strings in Objective-C">Text and strings</a></td>
+			<td>NSCharacterSet represents various groupings of characters that are used by the NSString and NSScanner classes. The NSString classes represent text strings and provide methods for searching, combining, and comparing strings. An NSScanner object is used to scan numbers and words from an NSString object.</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.tutorialspoint.com/objective_c/objective_c_dates_and_times.htm" title="Dates and times in Objective-C">Dates and times</a></td>
+			<td>The NSDate, NSTimeZone, and NSCalendar classes store times and dates and represent calendrical information. They offer methods for calculating date and time differences. Together with NSLocale, they provide methods for displaying dates and times in many formats and for adjusting times and dates based on location in the world.</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.tutorialspoint.com/objective_c/objective_c_exception_handling.htm" title="Exception Handling in Objective-C">Exception handling</a></td>
+			<td>Exception handling is used to handle unexpected situations and it&apos;s offered in Objective-C with NSException.</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.tutorialspoint.com/objective_c/objective_c_file_handling.htm" title="File Handling in Objective-C">File handling</a></td>
+			<td>File handling is done with the help of class NSFileManager.</td>
+		</tr>
+		<tr>
+			<td><a href="http://www.tutorialspoint.com/objective_c/objective_c_url_loading_system.htm" title="URL loading system in Objective-C">URL loading system</a></td>
+			<td>A set of classes and protocols that provide access to common Internet protocols.</td>
+		</tr>
+	</tbody>
+</table>
+
+	
+</body>
+</html>

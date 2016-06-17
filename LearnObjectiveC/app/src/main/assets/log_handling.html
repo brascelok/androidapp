@@ -1,0 +1,60 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	<h2>NSLog method</h2>
+
+<p>In order to print logs, we use the NSLog method in Objective-C programming language which we have used right from the Hello World example.</p>
+
+<p>Let us look at a simple code that would print the words &quot;Hello World&quot;:</p><pre>#import &lt;Foundation/Foundation.h&gt;
+
+int main()
+{
+&nbsp; &nbsp;NSLog(@&quot;Hello, World! \n&quot;);
+&nbsp; &nbsp;return 0;
+}</pre>
+
+<p>Now, when we compile and run the program, we will get the following result.</p><pre>2013-09-16 00:32:50.888 demo[16669] Hello, World!&nbsp;</pre>
+
+<h2>Disabling logs in Live apps</h2>
+
+<p>Since the NSLogs we use in our application, it will be printed in logs of device and it is not good to print logs in a live build. Hence, we use a type definition for printing logs and we can use them as shown below.</p><pre>#import &lt;Foundation/Foundation.h&gt;
+
+#if DEBUG == 0
+#define DebugLog(...)
+#elif DEBUG == 1
+#define DebugLog(...) NSLog(__VA_ARGS__)
+#endif
+
+int main()
+{
+&nbsp; &nbsp;DebugLog(@&quot;Debug log, our custom addition gets \
+&nbsp; &nbsp;printed during debug only&quot; );
+&nbsp; &nbsp;NSLog(@&quot;NSLog gets printed always&quot; ); &nbsp; &nbsp; 
+&nbsp; &nbsp;return 0;
+}</pre>
+
+<p>Now, when we compile and run the program in debug mode, we will get the following result.</p><pre>2013-09-11 02:47:07.723 demo[618] Debug log, our custom addition gets printed during debug only
+2013-09-11 02:47:07.723 demo[618] NSLog gets printed always</pre>
+
+<p>Now, when we compile and run the program in release mode, we will get the following result.</p><pre>2013-09-11 02:47:45.248 demo[3158] NSLog gets printed always</pre>
+
+<table>
+	<tbody>
+		<tr>
+			<td>
+				<br>
+			</td>
+			<td>
+				<br>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+	
+</body>
+</html>

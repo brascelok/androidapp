@@ -1,0 +1,94 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	
+	
+
+<p>The Objective-C programming language provides a keyword called <strong>typedef</strong>, which you can use to give a type a new name. Following is an example to define a term <strong>BYTE</strong> for one-byte numbers:</p><pre>typedef unsigned char BYTE;</pre>
+
+<p>After this type definition, the identifier BYTE can be used as an abbreviation for the type<strong>unsigned char, for example:</strong>.</p><pre>BYTE &nbsp;b1, b2;</pre>
+
+<p>By convention, uppercase letters are used for these definitions to remind the user that the type name is really a symbolic abbreviation, but you can use lowercase, as follows:</p><pre>typedef unsigned char byte;</pre>
+
+<p>You can use <strong>typedef</strong> to give a name to user-defined data type as well. For example, you can use typedef with structure to define a new data type and then use that data type to define structure variables directly as follows:</p><pre>#import &lt;Foundation/Foundation.h&gt;
+
+typedef struct Books
+{
+&nbsp; &nbsp;NSString *title;
+&nbsp; &nbsp;NSString *author;
+&nbsp; &nbsp;NSString *subject;
+&nbsp; &nbsp;int book_id;
+
+} Book;
+
+int main( )
+{
+
+&nbsp; &nbsp;Book book;
+&nbsp; &nbsp;book.title = @&quot;Objective-C Programming&quot;;
+&nbsp; &nbsp;book.author = @&quot;TutorialsPoint&quot;;
+&nbsp; &nbsp;book.subject = @&quot;Programming tutorial&quot;;
+&nbsp; &nbsp;book.book_id = 100;
+&nbsp; &nbsp;NSLog( @&quot;Book title : %@\n&quot;, book.title);
+&nbsp; &nbsp;NSLog( @&quot;Book author : %@\n&quot;, book.author);
+&nbsp; &nbsp;NSLog( @&quot;Book subject : %@\n&quot;, book.subject);
+&nbsp; &nbsp;NSLog( @&quot;Book Id : %d\n&quot;, book.book_id);
+
+&nbsp; &nbsp;return 0;
+}</pre>
+
+<p>When the above code is compiled and executed, it produces the following result:</p><pre>2013-09-12 12:21:53.745 demo[31183] Book title : Objective-C Programming
+2013-09-12 12:21:53.745 demo[31183] Book author : TutorialsPoint
+2013-09-12 12:21:53.745 demo[31183] Book subject : Programming tutorial
+2013-09-12 12:21:53.745 demo[31183] Book Id : 100</pre>
+
+<h2>typedef vs #define</h2>
+
+<p>The <strong>#define</strong> is a Objective-C directive, which is also used to define the aliases for various data types similar to <strong>typedef</strong> but with following differences:</p>
+
+<ul>
+	<li>
+
+		<p>The <strong>typedef</strong> is limited to giving symbolic names to types only whereas <strong>#define</strong>can be used to define alias for values as well, like you can define 1 as ONE, etc.</p>
+	</li>
+	<li>
+
+		<p>The <strong>typedef</strong> interpretation is performed by the compiler where as <strong>#define</strong>statements are processed by the pre-processor.</p>
+	</li>
+</ul>
+
+<p>Following is a simplest usage of #define:</p><pre>#import &lt;Foundation/Foundation.h&gt;
+
+#define TRUE &nbsp;1
+#define FALSE 0
+
+int main( )
+{
+&nbsp; &nbsp;NSLog( @&quot;Value of TRUE : %d\n&quot;, TRUE);
+&nbsp; &nbsp;NSLog( @&quot;Value of FALSE : %d\n&quot;, FALSE);
+
+&nbsp; &nbsp;return 0;
+}</pre>
+
+<p>When the above code is compiled and executed, it produces the following result:</p><pre>2013-09-12 12:23:37.993 demo[5160] Value of TRUE : 1
+2013-09-12 12:23:37.994 demo[5160] Value of FALSE : 0</pre>
+
+<table>
+	<tbody>
+		<tr>
+			<td>
+				<br>
+			</td>
+			<td>
+				<br>
+			</td>
+		</tr>
+	</tbody>
+</table>
+
+
+</body>
+</html>

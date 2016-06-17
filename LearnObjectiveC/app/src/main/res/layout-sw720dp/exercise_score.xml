@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/blue_light"
+    android:orientation="vertical"
+    android:weightSum="15"
+    android:padding="5dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:paddingBottom="@dimen/ex_padding_left_right"
+            android:paddingTop="@dimen/ex_padding_left_right"
+            android:text="@string/ex_notice"
+            android:textColor="#F1FD01"
+            android:textSize="@dimen/questioncompare_textview_textsize_big720"
+            android:textStyle="bold" />
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_marginBottom="2dp"
+            android:layout_marginTop="2dp"
+            android:background="#fff" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="5dip"
+        android:weightSum="10"
+        android:orientation="horizontal">
+        <pl.droidsonroids.gif.GifTextView
+            android:id="@+id/ex_score_image"
+            android:layout_width="@dimen/ex_smile720"
+            android:layout_height="@dimen/ex_smile"
+            android:layout_weight="4"
+            android:layout_margin="20dp"
+            android:background="@drawable/ic_big_smiley_001"
+            />
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_weight="6"
+            android:weightSum="10"
+            android:orientation="vertical">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="2"
+                android:text="@string/ex_yougot"
+                android:gravity="center"
+                android:textSize="@dimen/questioncompare_textview_textsize_big720"
+                android:textColor="@color/white"/>
+            <TextView
+                android:id="@+id/tv_score"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="8"
+                android:gravity="center"
+                android:textColor="@color/white"
+                android:textSize="@dimen/ex_notice_score"
+                android:text="@string/ex_example_score"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btn_ok_score"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5"
+        android:text="@string/btn_ok"
+        android:textSize="@dimen/questiontopic_textview_textsize_small" />
+
+</LinearLayout>

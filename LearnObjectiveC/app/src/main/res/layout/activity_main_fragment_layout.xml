@@ -1,0 +1,34 @@
+<com.blackrose.learnobjectivec.gui.DashboardLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f8f9fe">
+
+    <Button
+        android:id="@+id/btn_theory"
+        style="@style/DashboardButton"
+        android:drawableTop="@drawable/btn_theory"
+        android:text="@string/main_theory" />
+
+
+    <Button
+        android:id="@+id/btn_question"
+        style="@style/DashboardButton"
+        android:drawableTop="@drawable/btn_question"
+        android:text="@string/main_question" />
+
+
+    <Button
+        android:id="@+id/btn_tips"
+        style="@style/DashboardButton"
+        android:drawableTop="@drawable/btn_tips"
+        android:text="@string/main_tips" />
+
+
+    <Button
+        android:id="@+id/btn_exercise"
+        style="@style/DashboardButton"
+        android:drawableTop="@drawable/btn_exercise"
+        android:text="@string/main_ex" />
+
+</com.blackrose.learnobjectivec.gui.DashboardLayout>

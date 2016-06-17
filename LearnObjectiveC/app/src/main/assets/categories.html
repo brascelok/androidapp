@@ -1,0 +1,70 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+	
+
+<p>Sometimes, you may find that you wish to extend an existing class by adding behavior that is useful only in certain situations. In order add such extension to existing classes, Objective-C provides <strong>categories</strong> and <strong>extensions</strong>.</p>
+
+<p>If you need to add a method to an existing class, perhaps, to add functionality to make it easier to do something in your own application, the easiest way is to use a category.</p>
+
+<p>The syntax to declare a category uses the @interface keyword, just like a standard Objective-C class description, but does not indicate any inheritance from a subclass. Instead, it specifies the name of the category in parentheses, like this:</p><pre>@interface ClassName (CategoryName)
+
+@end</pre>
+
+<h2>Characteristics of category</h2>
+
+<ul>
+	<li>
+
+		<p>A category can be declared for any class, even if you don&apos;t have the original implementation source code.</p>
+	</li>
+	<li>
+
+		<p>Any methods that you declare in a category will be available to all instances of the original class, as well as any subclasses of the original class.</p>
+	</li>
+	<li>
+
+		<p>At runtime, there&apos;s no difference between a method added by a category and one that is implemented by the original class.</p>
+	</li>
+</ul>
+
+<p>Now, let&apos;s look at a sample category implementation. Let&apos;s add a category to the Cocoa class NSString. This category will make it possible for us to add a new method getCopyRightString which helps us in returning the copyright string. It is shown below.</p><pre>#import &lt;Foundation/Foundation.h&gt;
+
+@interface NSString(MyAdditions)
+
++(NSString *)getCopyRightString;
+
+@end
+
+@implementation NSString(MyAdditions)
+
++(NSString *)getCopyRightString{
+&nbsp; &nbsp; return @&quot;Copyright TutorialsPoint.com 2013&quot;;
+}
+
+@end
+
+
+int main(int argc, const char * argv[])
+{
+
+&nbsp; &nbsp;NSAutoreleasePool * pool = [[NSAutoreleasePool alloc] init];
+&nbsp; &nbsp;NSString *copyrightString = [NSString getCopyRightString];
+&nbsp; &nbsp;NSLog(@&quot;Accessing Category: %@&quot;,copyrightString);
+&nbsp; &nbsp;[pool drain];
+&nbsp; &nbsp; return 0;
+}</pre>
+
+<p>Now when we compile and run the program, we will get the following result.</p><pre>2013-09-22 21:19:12.125 Categories[340:303] Accessing Category: Copyright TutorialsPoint.com 2013</pre>
+
+<p>Even though any methods added by a category are available to all instances of the class and its subclasses, you&apos;ll need to import the category header file in any source code file where you wish to use the additional methods, otherwise you&apos;ll run into compiler warnings and errors.</p>
+
+<p>In our example, since we just have a single class, we have not included any header files, in such a case we should include the header files as said above.</p>
+
+	
+</body>
+</html>
