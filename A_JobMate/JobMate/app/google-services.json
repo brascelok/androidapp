@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "812601618832",
+    "firebase_url": "https://jobmate.firebaseio.com",
+    "project_id": "firebase-jobmate",
+    "storage_bucket": "firebase-jobmate.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:812601618832:android:6744db60a18d0502",
+        "android_client_info": {
+          "package_name": "com.brascelok.jobmate"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "812601618832-9pdb8mk9rj7o1vruv2a1e8aordnhc3n0.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA51tXdCCJ49oN-z9pcvCsI4ULENaMscvI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
